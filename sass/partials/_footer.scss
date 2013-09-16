@@ -14,6 +14,7 @@ body > footer {
   z-index: 1;
   a {
     @include link-colors($footer-link-color, $footer-link-color-hover, $visited: $footer-link-color);
+    text-decoration: none;
   }
   p:last-child { margin-bottom: 0; }
 }
