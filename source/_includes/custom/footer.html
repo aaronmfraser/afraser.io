@@ -1,0 +1,18 @@
+<p>
+  {% if site.mnml_mailto %}
+    <a href="mailto:{{ site.mnml_mailto }}"><i class="icon-envelope icon-2x"></i></a> 
+  {% else %}
+  {% endif %}
+  <a href="https://github.com/aaronmfraser"><i class="icon-github-sign icon-2x"></i></a>
+  <a href="https://bitbucket.org/aaronmfraser"><i class="icon-bitbucket-sign icon-2x"></i></a>
+  <a href="https://twitter.com/aaronmfraser"><i class="icon-twitter-sign icon-2x"></i></a>
+  <a href="https://www.linkedin.com/in/aaronmfraser/"><i class="icon-linkedin-sign icon-2x"></i></a>
+  <a href="{{ root_url }}/pgp-key/"><i class="icon-lock icon-2x"></i></a>
+  <br/>
+  Copyright &copy; {{ site.time | date: "%Y" }} - {{ site.author }} <br/>
+  <span class="credit">
+	  {% if site.mnml_host_name and site.mnml_host_url %}
+	  Hosted by <a href="{{ site.mnml_host_url }}">{{ site.mnml_host_name }}</a>. 
+	  {% endif %}
+  </span>
+</p>

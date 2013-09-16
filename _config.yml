@@ -2,10 +2,10 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://yoursite.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+url: http://afraser.io
+title: afraser.io
+subtitle: Professional Ducttape
+author: Aaron Fraser
 simple_search: http://google.com/search
 description:
 
@@ -27,12 +27,12 @@ email:
 
 # If publishing to a subdirectory as in http://site.com/project set 'root: /project'
 root: /
-permalink: /blog/:year/:month/:day/:title/
+permalink: /article/:year/:month/:day/:title/
 source: source
 destination: public
 plugins: plugins
 code_dir: downloads/code
-category_dir: blog/categories
+category_dir: article/categories
 markdown: rdiscount
 rdiscount:
   extensions:
@@ -63,13 +63,13 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/delicious.
 # ----------------------- #
 
 # Github repositories
-github_user:
-github_repo_count: 0
+github_user: aaronmfraser
+github_repo_count: 3
 github_show_profile_link: true
 github_skip_forks: true
 
 # Twitter
-twitter_user:
+twitter_user: aaronmfraser
 twitter_tweet_button: true
 
 # Google +1
@@ -82,7 +82,7 @@ googleplus_user:
 googleplus_hidden: false
 
 # Pinboard
-pinboard_user:
+pinboard_user: aaronmfraser
 pinboard_count: 3
 
 # Delicious
@@ -98,3 +98,7 @@ google_analytics_tracking_id:
 
 # Facebook Like
 facebook_like: false
+
+mnml_mailto: me@afraser.io
+mnml_host_name: Digital Ocean
+mnml_host_url: https://www.digitalocean.com
