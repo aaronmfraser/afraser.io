@@ -9,35 +9,75 @@ sidebar: false
 
 ## Summary
 ---
-* 10 Years of cross-platform experience supporting architecture, systems and network administration for SaaS, Cloud Service and Social Gaming platforms.
-* Driven to improve customer experience by adopting proven processes and procedures. 
-* Leadership and management experience with small teams and cross-functional groups. 
+Enjoy solving problems and satisfying the customer. Looking for interesting products that solve problems. 
 
 
 ## Tools
 ---
-| | |
-| ---- | ---- |
-| **Server OS:** | CentOS, RHEL, Ubuntu, Debian, Windows 2003, 2008  
-| **Client OS:** | Ubuntu, Fedora, Windows 7, Mac OSX 
-| **Applications:** | Web Servers (Apache, Nginx, Tomcat, Unicorn), Reverse Proxy Caches (Varnish, Squid, mod_proxy), Data Caches (Memcached, Redis), Firewalls (iptables, ufw), Load Balancing (haproxy), Queue (RabbitMQ, ActiveMQ, SonicMQ), Monitoring (Nagios, Zenoss, Zabbix, Cacti, PRTG, Munin, Monit, Ganglia, CollectD, graphite), Log analysis (Splunk, logstash/lumberjack/elasticsearch/kibana), NAS (NFS, Samba) 
-| **Databases:** | MySQL, PostgreSQL, MongoDB, Couchbase 
-| **Storage FS:** |  GPFS, Ceph, Swift, GlusterFS 
-| **Encryption:** | Eruces, EncryptFS 
-| **Cloud Mgmt:** | Openstack, Cloudstack, vCenter
-| **HA Tools:** | Cluster (Pacemaker, KeepaliveD), MySQL Replication (Galera, Percona XtraDB)
-| **Config Mgmt:** | Puppet, Chef, Bash scripting 
-| **Provisioning:** | PXE/Kickstart, Cobbler, Razor 
-| **Virtualization:** | Hypervisors (KVM, Xen, vSpehere, VirtualBox)  Containers(OpenVZ, LXC, Docker)
-| **Servers:** | Supermicro(FatTwin, Microcloud, Blades & Servers), Dell (Poweredge, PowerVault & C-Series), HP (Prolient G7 & G8 lades, SL Series and Rack Servers)
-| **Storage:** | DDN (SFA, S2A, GRIDScaler), HP 3Par (F-Class), Dell (Compellant, Equalogic),Huawei Symantec, EMC, Netapp, Isilon 
-| **Network:** | Cisco Switching (6500, 7400, Nexus 5000 s|eries), Citrix Netscalers, F5 Big IP 
-
+<table>
+  <tr>
+    <th>Server OS:</th>
+    <td>CentOS, RHEL, Ubuntu, Debian, Windows 2003, 2008</td>
+  </tr>
+  <tr>
+    <th>Client OS:</th>
+    <td>Ubuntu, Fedora, Windows 7, Mac OSX </td>
+  </tr>
+  <tr>
+    <th>Applications:</th>
+    <td>Web Servers (Apache, Nginx, Tomcat, Unicorn), Reverse Proxy Caches (Varnish, Squid, mod_proxy), Data Caches (Memcached, Redis), Firewalls (iptables, ufw), Load Balancing (haproxy), Queue (RabbitMQ, ActiveMQ, SonicMQ), Monitoring (Nagios, Zenoss, Zabbix, Cacti, PRTG, Munin, Monit, Ganglia, CollectD, graphite), Log analysis (Splunk, logstash/lumberjack/elasticsearch/kibana), NAS (NFS, Samba) </td>
+  </tr>
+  <tr>
+    <th>Databases:</th>
+    <td>MySQL, PostgreSQL, MongoDB, Couchbase </td>
+  </tr>
+  <tr>
+    <th>Storage FS:</th>
+    <td>GPFS, Ceph, Swift, GlusterFS</td>
+  </tr>
+  <tr>
+    <th>Encryption:</th>
+    <td>Eruces, EncryptFS</td>
+  </tr>
+  <tr>
+    <th>Cloud Mgmt:</th>
+    <td>Openstack, Cloudstack, vCenter</td>
+  </tr>
+  <tr>
+    <th>HA Tools:</th>
+    <td>Cluster (Pacemaker, KeepaliveD), MySQL Replication (Galera, Percona XtraDB)</td>
+  </tr>
+  <tr>
+    <th>Config Mgmt:</th>
+    <td>Puppet, Chef, Bash scripting</td>
+  </tr>
+  <tr>
+    <th>Provisioning:</th>
+    <td>Puppet, Chef, Bash scripting</td>
+  </tr>
+  <tr>
+    <th>Virtualization:</th>
+    <td>Hypervisors (KVM, Xen, vSpehere, VirtualBox)  Containers(OpenVZ, LXC, Docker)
+</td>
+  </tr>
+  <tr>
+    <th> Servers: </th>
+    <td>Supermicro(FatTwin, Microcloud, Blades & Servers), Dell (Poweredge, PowerVault & C-Series), HP (Prolient G7 & G8 lades, SL Series and Rack Servers)</td>
+  </tr>
+  <tr>
+    <th> Storage: </th>
+    <td>DDN (SFA, S2A, GRIDScaler), HP 3Par (F-Class), Dell (Compellant, Equalogic),Huawei Symantec, EMC, Netapp, Isilon</td>
+  </tr>
+  <tr>
+    <th> Network: </th>
+    <td>Cisco Switching (6500, 7400, Nexus 5000 s|eries), Citrix Netscalers, F5 Big IP </td>
+  </tr>
+</table>
 
 ## Employers
 ---
 * CliQr Technologies - Sunnyvale, Ca - May 2013 -> Present
-  * DevOps Manager
+  * Sr. DevOps Engineer
     * Operate datacenter to run internal and development private clouds
     * Built network and system infrastructure to support Private Cloud systems
     * Built scalable puppet infrastructure (Puppet 3.2.*, Hiera, PuppetDB, mcollective)
