@@ -1,22 +1,12 @@
-<p>
-  {% if site.mnml_mailto %}
-    <a href="mailto:{{ site.mnml_mailto }}"><i class="icon-envelope icon-2x"></i></a> 
-  {% else %}
-  {% endif %}
+<p class="social-icons">{% if site.mnml_mailto %}
+    <a href="mailto:{{ site.mnml_mailto }}">
+       <i class="icon-envelope icon-2x"></i>
+    </a> {% else %}{% endif %}
     <a href="https://github.com/aaronmfraser">
        <i class="icon-github icon-2x"></i>
     </a>
-    <a href="https://bitbucket.org/aaronmfraser">
-       <i class="icon-bitbucket icon-2x"></i>
-    </a>
-    <a href="https://twitter.com/aaronmfraser">
-       <i class="icon-twitter icon-2x"></i>
-    </a>
     <a href="https://www.linkedin.com/in/aaronmfraser/">
        <i class="icon-linkedin icon-2x"></i>
-    </a>
-    <a href="http://stackoverflow.com/users/2713185/aaronmfraser">
-       <i class="icon-stackexchange icon-2x"></i>
     </a>
     <a href="https://pinboard.in/u:aaronmfraser">
        <i class="icon-pushpin icon-2x"></i>
@@ -24,7 +14,8 @@
     <a href="{{ root_url }}/pgp-key/">
        <i class="icon-lock icon-2x"></i>
     </a>
-  <br/>
+</p>
+<p>
   Copyright &copy; {{ site.time | date: "%Y" }} - {{ site.author }} <br/>
   <span class="credit">
 	  {% if site.mnml_host_name and site.mnml_host_url %}

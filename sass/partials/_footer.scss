@@ -17,4 +17,7 @@ body > footer {
     text-decoration: none;
   }
   p:last-child { margin-bottom: 0; }
+  .social-icons a { 
+    padding: 1em .5em .5em 1em;
+    opacity: .5; }
 }
