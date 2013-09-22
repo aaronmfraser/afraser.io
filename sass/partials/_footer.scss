@@ -19,5 +19,13 @@ body > footer {
   p:last-child { margin-bottom: 0; }
   .social-icons a { 
     padding: 1em .5em .5em 1em;
-    opacity: .5; }
+    opacity: .5;
+    -webkit-transition: opacity ease-in-out .15s
+    transition: opacity ease-in-out .15s;
+    &:hover {
+      opacity: 1;
+      -webkit-transition: opacity ease-in-out .15s
+      transition: opacity ease-in-out .15s;
+    }
+  }
 }
