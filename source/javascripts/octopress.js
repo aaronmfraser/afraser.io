@@ -137,7 +137,7 @@ $('document').ready(function() {
   addCodeLineNumbers();
   getNav();
   addSidebarToggler();
-  openLinksInNewWindow(); 
+  #openLinksInNewWindow(); 
 });
 
 // iOS scaling bug fix

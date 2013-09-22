@@ -47,6 +47,7 @@ body > nav {
     ul.subscription {
       margin-left: .8em;
       float: right;
+      opacity: .5;
       li:last-child a { padding-right: 0; }
     }
     ul li {
@@ -136,8 +137,13 @@ body > nav {
       }
     }
   }
-  ul.subscription { position: relative; top: .2em; li, a { border: 0; padding: 0; }}
-  a[rel=subscribe-rss]{ @include mask-subscription-nav('rss.png'); }
-  a[rel=subscribe-email]{ @include mask-subscription-nav('email.png'); }
+  ul.subscription { 
+    position: relative; top: .2em; 
+    opacity: .5;
+    li, a { 
+      border: 0; padding: 0; 
+      }}
+  #a[rel=subscribe-rss]{ @include mask-subscription-nav('rss.png'); }
+  #a[rel=subscribe-email]{ @include mask-subscription-nav('email.png'); }
 }
 

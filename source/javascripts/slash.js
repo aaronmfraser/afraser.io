@@ -2,7 +2,7 @@
 	// Open external links in new window
 	var externalLinks = function(){
 		var host = location.host;
-
+  
 		$('body').on('click', 'a', function(e){
 			var href = this.href,
 				link = href.replace(/https?:\/\/([^\/]+)(.*)/, '$1');
@@ -30,7 +30,7 @@
 		});
 	};
 
-	externalLinks(); // Delete or comment this line to disable opening external links in new window
+	#externalLinks(); // Delete or comment this line to disable opening external links in new window
 	appendCaption(); // Delete or comment this line to disable caption
 
 	var mobilenav = $('#mobile-nav');
