@@ -41,10 +41,11 @@ function addSidebarToggler() {
 
 function openLinksInNewWindow() {
   $('a').each(function() {
-   if(!a.test("mailto")) {
-     var a = new RegExp('/' + window.location.host + '/');
+   var mail=/mailto/g;
+   var a = new RegExp('/' + window.location.host + '/');
      if(!a.test(this.href)) {
-       $(this).click(function(event) {
+       if(!mail.test(this.href)) {
+        $(this).click(function(event) {
          event.preventDefault();
          event.stopPropagation();
          window.open(this.href, '_blank');
