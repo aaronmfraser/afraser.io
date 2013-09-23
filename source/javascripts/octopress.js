@@ -42,7 +42,7 @@ function addSidebarToggler() {
 function openLinksInNewWindow() {
   $('a').each(function() {
     var a = new RegExp('/' + window.location.host + '/');
-    if(!a.test(this.href)) {
+    if(!a.test(this.href) || a.test("mailto") {
       $(this).click(function(event) {
         event.preventDefault();
         event.stopPropagation();
