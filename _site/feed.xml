@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<title type="text">Aaron Fraser</title>
+<subtitle type="text">Distilled thought of a Systems Engineer</subtitle>
+<generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
+<link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
+<link rel="alternate" type="text/html" href="http://localhost:4000" />
+<updated>2014-02-02T14:15:53-08:00</updated>
+<id>http://localhost:4000/</id>
+<author>
+  <name>Aaron Fraser</name>
+  <uri>http://localhost:4000/</uri>
+  <email>me@afraser.io</email>
+</author>
+
+
+<entry>
+  <title type="html"><![CDATA[Diastatic Malt Powder]]></title>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/diastatic-malt-powder/" />
+  <id>http://localhost:4000/articles/diastatic-malt-powder</id>
+  <updated>2013-05-31T00:00:00-00:00</updated>
+  <published>2014-12-27T00:00:00-08:00</published>
+  
+  <author>
+    <name>Aaron Fraser</name>
+    <uri>http://localhost:4000</uri>
+    <email>me@afraser.io</email>
+  </author>
+  <content type="html">&lt;p&gt;Evidently it is nigh-impossible to procure diastatic malt powder in the valley… No kitchen supply or grocer carries it. Rob’s Red mill even stopped selling it recently.&lt;/p&gt;
+
+&lt;p&gt;For those looking for it: 
+&lt;a href=&quot;http://www.kingarthurflour.com/shop/items/diastatic-malt-powder-16-oz&quot;&gt;King Arthur&lt;/a&gt;
+, 
+&lt;a href=&quot;http://www.amazon.com/Diastatic-Malt-Powder-1-lb/dp/B0001AVRRE&quot;&gt;Barry Farms&lt;/a&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/diastatic-malt-powder/&quot;&gt;Diastatic Malt Powder&lt;/a&gt; was originally published by Aaron Fraser at &lt;a href=&quot;http://localhost:4000&quot;&gt;Aaron Fraser&lt;/a&gt; on December 27, 2014.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Razor & Windows]]></title>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/razor-windows/" />
+  <id>http://localhost:4000/articles/razor-windows</id>
+  <updated>2013-05-31T00:00:00-00:00</updated>
+  <published>2014-01-04T00:00:00-08:00</published>
+  
+  <author>
+    <name>Aaron Fraser</name>
+    <uri>http://localhost:4000</uri>
+    <email>me@afraser.io</email>
+  </author>
+  <content type="html">&lt;section id=&quot;table-of-contents&quot; class=&quot;toc&quot;&gt;
+  &lt;header&gt;
+    &lt;h3&gt;Contents&lt;/h3&gt;
+  &lt;/header&gt;
+&lt;div id=&quot;drawer&quot;&gt;
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#requirements&quot;&gt;Requirements:&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#configure-repo&quot;&gt;Configure repo&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#resolve-dvdlibarchive-bug&quot;&gt;Resolve DVD/libarchive bug&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#build-wim-file&quot;&gt;Build wim file&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#windows-2012-r2-build&quot;&gt;Windows 2012 R2 Build&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#windows-2008-r2-build&quot;&gt;Windows 2008 R2 Build&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#build-steps&quot;&gt;Build Steps:&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#configure-recipe&quot;&gt;Configure Recipe&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#windows-2012-r2&quot;&gt;Windows 2012 R2&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#windows-2008-r2&quot;&gt;Windows 2008 R2&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#unattendedxml&quot;&gt;unattended.xml&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#test&quot;&gt;Test&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;/div&gt;
+&lt;/section&gt;
+&lt;!-- /#table-of-contents --&gt;
+
+&lt;p&gt;Working at an employer with diverse technological needs requires that what ever tools we use be incrediably versatile and secure. Recent development in &lt;a href=&quot;https://github.com/puppetlabs/razor-server&quot;&gt;Puppetlabs Razor&lt;/a&gt; has made it a viable option. &lt;/p&gt;
+
+&lt;h3 id=&quot;requirements&quot;&gt;Requirements:&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Functional Razor-server install&lt;/li&gt;
+  &lt;li&gt;Access to MSDN or other Windows ISO and License Key&lt;/li&gt;
+  &lt;li&gt;Virtualization with host-only networking&lt;/li&gt;
+  &lt;li&gt;Windows server 2012 R2 VM&lt;/li&gt;
+  &lt;li&gt;Windows server 2008 R2 VM&lt;/li&gt;
+  &lt;li&gt;Vagrant (optional)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;configure-repo&quot;&gt;Configure repo&lt;/h3&gt;
+&lt;p&gt;Lets create a repo for our window server. This will create the razor repo-store directory and copy the contents of that iso into the intended directory. &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;RAZOR_ADMIN=http://localhost
+razor create-repo --name=&amp;lt;repo-name&amp;gt; --iso-url=&amp;lt;url to iso&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;resolve-dvdlibarchive-bug&quot;&gt;Resolve DVD/libarchive bug&lt;/h4&gt;
+&lt;p&gt;Razor uses libarchive to setup repos from an iso file. Due to the size of windows server ISOs, it can’t open and copy the into the repo. &lt;/p&gt;
+
+&lt;p&gt;To revolve this we have to mount the iso:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;mount -o loop /mnt/cdrom &amp;lt;iso file&amp;gt;
+cp /mnt/cdrom/* &amp;lt;razor-repo-store&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;build-wim-file&quot;&gt;Build wim file&lt;/h3&gt;
+&lt;p&gt;To start it would be a good idea to read puppetlabs writeup on installing windows: &lt;a href=&quot;https://github.com/puppetlabs/razor-server/wiki/Installing-windows&quot;&gt;windows instructions&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;windows-2012-r2-build&quot;&gt;Windows 2012 R2 Build&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Install &lt;a href=&quot;http://www.microsoft.com/en-us/download/details.aspx?id=39982&quot;&gt;WinPE5&lt;/a&gt; on your windows server. &lt;/li&gt;
+  &lt;li&gt;Download the contents of build-winpe from razor-server repo into a build directory on the windows server. &lt;/li&gt;
+  &lt;li&gt;Run the build script: &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;powershell -executionpolicy bypass -noninteractive -file build-razor-winpe.ps1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The build script mounts the wim provided with the ADK. We need to copy a file out of there, bootmgr.exe. We’ll cover the why later. While the build process is  executing, open the build directory you made and head into the razor-wim-mount directory. The path in the mount point is &lt;code&gt;Windows\Boot\PXE\bootmgr.exe&lt;/code&gt;. Copy the file out of the mount as it will need to be placed on the razor repo directory. I found this little trick &lt;a href=&quot;http://blog.devicenull.org/2013/11/14/ipxe-wimboot-and-windows-server-2012r2.html&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Once the build process is completed please copy the wim and the copied bootmgr.exe file to razor. &lt;/p&gt;
+
+&lt;h4 id=&quot;windows-2008-r2-build&quot;&gt;Windows 2008 R2 Build&lt;/h4&gt;
+&lt;p&gt;Puppet build scripts are dependent on DISM cmdlets.&lt;/p&gt;
+
+&lt;h5 id=&quot;build-steps&quot;&gt;Build Steps:&lt;/h5&gt;
+&lt;ul&gt;
+  &lt;li&gt;Install windows updates:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;http://www.microsoft.com/en-us/download/details.aspx?id=30652&quot;&gt;WinPE4&lt;/a&gt; &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://www.microsoft.com/en-us/download/details.aspx?id=30653&quot;&gt;Microsoft .NET Framework 4.5&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://www.microsoft.com/en-us/download/details.aspx?id=40855&quot;&gt;Windows Management Framework 4.0&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Download the contents of build-winpe from razor-server repo into a build directory on the windows server. &lt;/li&gt;
+  &lt;li&gt;As this is not Windows 8/2012, the DISM cmdlets arent automatically imported. To do so modify the build-razor-winpe.ps1 script:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;import-module dism` -&amp;gt; `import-module &amp;quot;C:\Program Files (x86)\Windows Kit\8.0\Assessment and Deployment Kit\Deployment Tools\amd64\DISM&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Run the build script:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;powershell -executionpolicy bypass -noninteractive -file build-razor-winpe.ps1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Dont worry about the bootmgr.exe this time, the one copied from 2012 will work here as well. Once the build completes, copy the new winpe.wim to your razor repo for windows 2008 R2. &lt;/p&gt;
+
+&lt;h3 id=&quot;configure-recipe&quot;&gt;Configure Recipe&lt;/h3&gt;
+&lt;p&gt;I found that the behaviour in of templating in the recipes to not work as directed. So please copy the windows dir and the windows.yaml and make a copy for each new version of the OS. You will them need to adjust the the boot_wim.erb in each of the recipe directories. &lt;/p&gt;
+
+&lt;h4 id=&quot;windows-2012-r2&quot;&gt;Windows 2012 R2&lt;/h4&gt;
+&lt;p&gt;Change from BOOTMGR to bootmgr.exe&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;initrd ${base}/bootmgr.exe			bootmgr.exe
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;windows-2008-r2&quot;&gt;Windows 2008 R2&lt;/h4&gt;
+&lt;p&gt;Remove the additional fonts from the boot_wim.erb&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;initrd ${base}/boot/fonts/segmono_boot.ttf	segmono_boot.ttf
+initrd ${base}/boot/fonts/segoe_slboot.ttf	segoe_slboot.ttf
+initrd ${base}/boot/fonts/wgl4_boot.ttf		wgl4_boot.ttf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;unattendedxml&quot;&gt;unattended.xml&lt;/h3&gt;
+&lt;p&gt;You should remove the contents of the current unattended.xml files in 8-pro. This file will not work with Windows Server 2008 R2 nor 2012 R2. It would be best to look over Microsofts documentation process on how to construct an unattended.xml. &lt;/p&gt;
+
+&lt;h3 id=&quot;test&quot;&gt;Test&lt;/h3&gt;
+&lt;p&gt;Now all you need to do is configure a policy to use the your new repo and kickstart a windows vm. &lt;/p&gt;
+
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/razor-windows/&quot;&gt;Razor & Windows&lt;/a&gt; was originally published by Aaron Fraser at &lt;a href=&quot;http://localhost:4000&quot;&gt;Aaron Fraser&lt;/a&gt; on January 04, 2014.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Nagios behind Nginx]]></title>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/nagios-behind-nginx/" />
+  <id>http://localhost:4000/articles/nagios-behind-nginx</id>
+  <updated>2013-05-31T00:00:00-00:00</updated>
+  <published>2013-10-22T00:00:00-07:00</published>
+  
+  <author>
+    <name>Aaron Fraser</name>
+    <uri>http://localhost:4000</uri>
+    <email>me@afraser.io</email>
+  </author>
+  <content type="html">&lt;p&gt;Recently changed jobs, Diseny Interactive, and their default web server is Nginx. So to better support nginx I decided to migrate all of the services that I play with to work behind it and today was Nagios’s turn. I followed a few other blogs help in getting the configs straighted out but below is another rendition of this exercise.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+&lt;p&gt;SPECS:
+System: Amazon AMI &lt;br /&gt;
+Server: Nginx 1.0.15 &lt;br /&gt;
+Nagios: 3.3.1   &lt;/p&gt;
+
+&lt;h3 id=&quot;install-nagios--plugins&quot;&gt;Install nagios &amp;amp; plugins:&lt;/h3&gt;
+&lt;p&gt;First lets install the packages needed:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;yum install nagios nagios-plugins-all
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Before we start services we need to head over to change the ownership of a few files. These files are important for nginx to access on startup:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;chown root:nginx /etc/passwd
+chown root:nginx /usr/share/nagios/html/config.inc.php
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Also we need to add nginx to nagios group. This is necessary for nginx to be able to access certain files for FastCGI:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;nagios:x:497:nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;We can now go ahead and start services as we wont be changing any of the nagios configs from here on out:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;# service nagios start
+Starting nagios: done.
+
+# chkconfig --level 3 nagios on
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;configure-fastcgi-and-php-scriptsservices&quot;&gt;Configure FastCGI and PHP scripts/services&lt;/h3&gt;
+&lt;p&gt;To start you have it install epel. Many of the required packages arent provided with Amazons version of epel&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;wget http://mirror.steadfast.net/epel/6/i386/epel-release-6-7.noarch.rpm
+rpm -Uvh epel-release-6-7.noarch.rpm
+
+yum install fcgi spawn-fcgi fcgi-devel
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;install-fcgiwrap&quot;&gt;Install fcgiwrap&lt;/h5&gt;
+&lt;p&gt;We will need to install fcgiwrap. It is a Simple server for running CGI applications over FastCGI (http://nginx.localdomain.pl/wiki/FcgiWrap). Below are the steps to install fcgiwrap:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;cd /tmp
+git clone git://github.com/gnosek/fcgiwrap.git
+cd fcgiwrap/
+autoreconf -i
+make
+make install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;configure-spawn-fcgi&quot;&gt;Configure spawn-fcgi&lt;/h5&gt;
+&lt;p&gt;Once fcgiwrap is installed, what we want to do is enable FastCGI and enable us to pass requests.
+To begin lets set up spawn-fcgi config located, /etc/sysconfig/spawn-fcgi:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;OPTIONS=&amp;quot;-u nginx -g nginx -a 127.0.0.1 -p 9001 -f /usr/local/sbin/fcgiwrap -P /var/run/spawn-fcgi.pid&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;configure-spawn-fcgi-php&quot;&gt;Configure spawn-fcgi-php&lt;/h5&gt;
+&lt;p&gt;Next lets set up spawn-fcgi-php config located, /etc/sysconfig/spawn-fcgi-php:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;cp /etc/sysconfig/spawn-fcgi /etc/sysconfig/spawn-fcgi-php
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Add the following line to the newly created file:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;OPTIONS=&amp;quot;-u nginx -g nginx -a 127.0.0.1 -p 9002 -f /usr/bin/php-cgi -P /var/run/spawn-fcgi-php.pid&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;install--configure-nginx&quot;&gt;Install &amp;amp; Configure nginx&lt;/h3&gt;
+&lt;p&gt;First we will need to install nginx.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;yum install nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Next lets configure the VirtualHost&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text&quot;&gt;server {
+    server_name  &amp;lt;servername&amp;gt;;
+
+    location / {
+        auth_basic &amp;quot;Access to the web interface is restricted&amp;quot;;
+        auth_basic_user_file /etc/nagios/passwd;
+	index index.php;
+        rewrite ^/nagios/(.*) /$1 break;
+
+        root /usr/share/nagios/html;
+        fastcgi_index  index.php;
+        include /etc/nginx/fastcgi_params;
+	fastcgi_param SCRIPT_FILENAME /usr/share/nagios/html$fastcgi_script_name;
+        if ($uri ~ &amp;quot;\.php&amp;quot;){
+	   fastcgi_pass   127.0.0.1:9002;
+        }
+    }
+
+    location ~ ^/nagios/cgi-bin/ {
+	root /usr/lib64/;        
+	include /etc/nginx/fastcgi_params;
+        auth_basic &amp;quot;Restricted&amp;quot;;
+        auth_basic_user_file /etc/nagios/passwd;
+        fastcgi_param  AUTH_USER $remote_user;
+        fastcgi_param  REMOTE_USER $remote_user;
+	fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        if ($uri ~ &amp;quot;\.cgi$&amp;quot;){
+            fastcgi_pass   127.0.0.1:9001;
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/nagios-behind-nginx/&quot;&gt;Nagios behind Nginx&lt;/a&gt; was originally published by Aaron Fraser at &lt;a href=&quot;http://localhost:4000&quot;&gt;Aaron Fraser&lt;/a&gt; on October 22, 2013.&lt;/p&gt;</content>
+</entry>
+
+</feed>

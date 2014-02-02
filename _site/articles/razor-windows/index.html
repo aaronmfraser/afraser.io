@@ -1,0 +1,310 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Razor & Windows &#8211; Aaron Fraser</title>
+<meta name="description" content="Provisioning Windows with BMaaS">
+<meta name="keywords" content="windows, razor, puppetlabs">
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:4000/images/servers.jpg">
+
+<meta name="twitter:title" content="Razor & Windows">
+<meta name="twitter:description" content="Provisioning Windows with BMaaS">
+<meta name="twitter:creator" content="@aaronmfraser">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Razor & Windows">
+<meta property="og:description" content="Provisioning Windows with BMaaS">
+<meta property="og:url" content="http://localhost:4000/articles/razor-windows/">
+<meta property="og:site_name" content="Aaron Fraser">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/articles/razor-windows/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Aaron Fraser Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="http://localhost:4000/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="post">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="http://localhost:4000">Aaron Fraser</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="http://localhost:4000/about/" >About</a></li>
+		        
+				<li><a href="http://localhost:4000/posts/" >Posts</a></li>
+		        
+				<li><a href="http://photos.afraser.io" target="_blank">Photos</a></li>
+		        
+		        <li><i class="icon-feed"></i> <a href="http://localhost:4000/feed.xml" title="Atom/RSS feed">Feed</a>
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+<div class="image-wrap">
+  <img src="http://localhost:4000/images/servers.jpg" alt="Razor & Windows feature image">
+  <span class="image-credit">Photo Credit: <a href="http://wikimedia.org">wikimedia.org</a></span>
+</div><!-- /.image-wrap -->
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    <img src="http://localhost:4000/images/bio-photo.jpeg" class="bio-photo" alt="Aaron Fraser bio photo"></a>
+<h3>Aaron Fraser</h3>
+<p>Treat yo' self.</p>
+<a href="http://twitter.com/aaronmfraser" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>
+
+
+<a href="http://linkedin.com/in/aaronmfraser" class="author-social" target="_blank"><i class="icon-linkedin"></i> LinkedIn</a>
+
+<a href="http://github.com/aaronmfraser" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+  </div>
+  <article>
+    <div class="headline-wrap">
+      <h1>Razor & Windows</h1>
+      <h2></h2>
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap">
+      <section id="table-of-contents" class="toc">
+  <header>
+    <h3>Contents</h3>
+  </header>
+<div id="drawer">
+<ul id="markdown-toc">
+  <li><a href="#requirements">Requirements:</a></li>
+  <li><a href="#configure-repo">Configure repo</a>    <ul>
+      <li><a href="#resolve-dvdlibarchive-bug">Resolve DVD/libarchive bug</a></li>
+    </ul>
+  </li>
+  <li><a href="#build-wim-file">Build wim file</a>    <ul>
+      <li><a href="#windows-2012-r2-build">Windows 2012 R2 Build</a></li>
+      <li><a href="#windows-2008-r2-build">Windows 2008 R2 Build</a>        <ul>
+          <li><a href="#build-steps">Build Steps:</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#configure-recipe">Configure Recipe</a>    <ul>
+      <li><a href="#windows-2012-r2">Windows 2012 R2</a></li>
+      <li><a href="#windows-2008-r2">Windows 2008 R2</a></li>
+    </ul>
+  </li>
+  <li><a href="#unattendedxml">unattended.xml</a></li>
+  <li><a href="#test">Test</a></li>
+</ul>
+
+  </div>
+</section>
+<!-- /#table-of-contents -->
+
+<p>Working at an employer with diverse technological needs requires that what ever tools we use be incrediably versatile and secure. Recent development in <a href="https://github.com/puppetlabs/razor-server">Puppetlabs Razor</a> has made it a viable option. </p>
+
+<h3 id="requirements">Requirements:</h3>
+
+<ul>
+  <li>Functional Razor-server install</li>
+  <li>Access to MSDN or other Windows ISO and License Key</li>
+  <li>Virtualization with host-only networking</li>
+  <li>Windows server 2012 R2 VM</li>
+  <li>Windows server 2008 R2 VM</li>
+  <li>Vagrant (optional)</li>
+</ul>
+
+<h3 id="configure-repo">Configure repo</h3>
+<p>Lets create a repo for our window server. This will create the razor repo-store directory and copy the contents of that iso into the intended directory. </p>
+
+<div class="highlight"><pre><code class="text">RAZOR_ADMIN=http://localhost
+razor create-repo --name=&lt;repo-name&gt; --iso-url=&lt;url to iso&gt;
+</code></pre></div>
+
+<h4 id="resolve-dvdlibarchive-bug">Resolve DVD/libarchive bug</h4>
+<p>Razor uses libarchive to setup repos from an iso file. Due to the size of windows server ISOs, it can’t open and copy the into the repo. </p>
+
+<p>To revolve this we have to mount the iso:</p>
+
+<div class="highlight"><pre><code class="text">mount -o loop /mnt/cdrom &lt;iso file&gt;
+cp /mnt/cdrom/* &lt;razor-repo-store&gt;
+</code></pre></div>
+
+<h3 id="build-wim-file">Build wim file</h3>
+<p>To start it would be a good idea to read puppetlabs writeup on installing windows: <a href="https://github.com/puppetlabs/razor-server/wiki/Installing-windows">windows instructions</a></p>
+
+<h4 id="windows-2012-r2-build">Windows 2012 R2 Build</h4>
+<ul>
+  <li>Install <a href="http://www.microsoft.com/en-us/download/details.aspx?id=39982">WinPE5</a> on your windows server. </li>
+  <li>Download the contents of build-winpe from razor-server repo into a build directory on the windows server. </li>
+  <li>Run the build script: </li>
+</ul>
+
+<div class="highlight"><pre><code class="text">powershell -executionpolicy bypass -noninteractive -file build-razor-winpe.ps1
+</code></pre></div>
+
+<p>The build script mounts the wim provided with the ADK. We need to copy a file out of there, bootmgr.exe. We’ll cover the why later. While the build process is  executing, open the build directory you made and head into the razor-wim-mount directory. The path in the mount point is <code>Windows\Boot\PXE\bootmgr.exe</code>. Copy the file out of the mount as it will need to be placed on the razor repo directory. I found this little trick <a href="http://blog.devicenull.org/2013/11/14/ipxe-wimboot-and-windows-server-2012r2.html">here</a></p>
+
+<p>Once the build process is completed please copy the wim and the copied bootmgr.exe file to razor. </p>
+
+<h4 id="windows-2008-r2-build">Windows 2008 R2 Build</h4>
+<p>Puppet build scripts are dependent on DISM cmdlets.</p>
+
+<h5 id="build-steps">Build Steps:</h5>
+<ul>
+  <li>Install windows updates:
+    <ul>
+      <li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=30652">WinPE4</a> </li>
+      <li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=30653">Microsoft .NET Framework 4.5</a></li>
+      <li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=40855">Windows Management Framework 4.0</a></li>
+    </ul>
+  </li>
+  <li>Download the contents of build-winpe from razor-server repo into a build directory on the windows server. </li>
+  <li>As this is not Windows 8/2012, the DISM cmdlets arent automatically imported. To do so modify the build-razor-winpe.ps1 script:</li>
+</ul>
+
+<div class="highlight"><pre><code class="text">import-module dism` -&gt; `import-module &quot;C:\Program Files (x86)\Windows Kit\8.0\Assessment and Deployment Kit\Deployment Tools\amd64\DISM&quot;
+</code></pre></div>
+
+<ul>
+  <li>Run the build script:</li>
+</ul>
+
+<div class="highlight"><pre><code class="text">powershell -executionpolicy bypass -noninteractive -file build-razor-winpe.ps1
+</code></pre></div>
+
+<p>Dont worry about the bootmgr.exe this time, the one copied from 2012 will work here as well. Once the build completes, copy the new winpe.wim to your razor repo for windows 2008 R2. </p>
+
+<h3 id="configure-recipe">Configure Recipe</h3>
+<p>I found that the behaviour in of templating in the recipes to not work as directed. So please copy the windows dir and the windows.yaml and make a copy for each new version of the OS. You will them need to adjust the the boot_wim.erb in each of the recipe directories. </p>
+
+<h4 id="windows-2012-r2">Windows 2012 R2</h4>
+<p>Change from BOOTMGR to bootmgr.exe</p>
+
+<div class="highlight"><pre><code class="text">initrd ${base}/bootmgr.exe			bootmgr.exe
+</code></pre></div>
+
+<h4 id="windows-2008-r2">Windows 2008 R2</h4>
+<p>Remove the additional fonts from the boot_wim.erb</p>
+
+<div class="highlight"><pre><code class="text">initrd ${base}/boot/fonts/segmono_boot.ttf	segmono_boot.ttf
+initrd ${base}/boot/fonts/segoe_slboot.ttf	segoe_slboot.ttf
+initrd ${base}/boot/fonts/wgl4_boot.ttf		wgl4_boot.ttf
+</code></pre></div>
+
+<h3 id="unattendedxml">unattended.xml</h3>
+<p>You should remove the contents of the current unattended.xml files in 8-pro. This file will not work with Windows Server 2008 R2 nor 2012 R2. It would be best to look over Microsofts documentation process on how to construct an unattended.xml. </p>
+
+<h3 id="test">Test</h3>
+<p>Now all you need to do is configure a policy to use the your new repo and kickstart a windows vm. </p>
+
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          <img src="http://localhost:4000/images/bio-photo.jpeg" class="bio-photo" alt="Aaron Fraser bio photo"></a>
+<h3>Aaron Fraser</h3>
+<p>Treat yo' self.</p>
+<a href="http://twitter.com/aaronmfraser" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>
+
+
+<a href="http://linkedin.com/in/aaronmfraser" class="author-social" target="_blank"><i class="icon-linkedin"></i> LinkedIn</a>
+
+<a href="http://github.com/aaronmfraser" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+        </div>
+        <p class="byline"><strong>Razor & Windows</strong> was published on <time datetime="2014-01-04T00:00:00-08:00">January 04, 2014</time> and last modified on <time datetime="2013-05-31">May 31, 2013</time> by <a href="http://localhost:4000/about" title="About Aaron Fraser">Aaron Fraser</a>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <div class="related-articles">
+  <h4>You might also enjoy <small class="pull-right">(<a href="http://localhost:4000/posts/">View all posts</a>)</small></h4>
+    <ul>
+    
+      
+      
+        
+          
+        
+      
+      
+      <li><a href="http://localhost:4000/articles/diastatic-malt-powder/" title="Diastatic Malt Powder">Diastatic Malt Powder</a></li>
+      
+    
+      
+      
+        
+          
+        
+      
+      
+      <li><a href="http://localhost:4000/articles/nagios-behind-nginx/" title="Nagios behind Nginx">Nagios behind Nginx</a></li>
+      
+    
+    </ul>
+    <hr />
+  </div><!-- /.related-articles -->
+  <footer>
+    <span>&copy; 2014 Aaron Fraser. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+	        
+
+</body>
+</html>

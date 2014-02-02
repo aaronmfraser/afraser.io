@@ -1,0 +1,92 @@
+<p>Recently changed jobs, Diseny Interactive, and their default web server is Nginx. So to better support nginx I decided to migrate all of the services that I play with to work behind it and today was Nagios’s turn. I followed a few other blogs help in getting the configs straighted out but below is another rendition of this exercise.</p>
+<!-- more -->
+<p>SPECS: System: Amazon AMI <br />Server: Nginx 1.0.15 <br />Nagios: 3.3.1</p>
+
+<h3 id="install_nagios__plugins">Install nagios &amp; plugins:</h3>
+
+<p>First lets install the packages needed:</p>
+<div class='highlight'><pre><code class='text'>yum install nagios nagios-plugins-all
+</code></pre></div>
+<p>Before we start services we need to head over to change the ownership of a few files. These files are important for nginx to access on startup:</p>
+<div class='highlight'><pre><code class='text'>chown root:nginx /etc/passwd
+chown root:nginx /usr/share/nagios/html/config.inc.php
+</code></pre></div>
+<p>Also we need to add nginx to nagios group. This is necessary for nginx to be able to access certain files for FastCGI:</p>
+<div class='highlight'><pre><code class='text'>nagios:x:497:nginx
+</code></pre></div>
+<p>We can now go ahead and start services as we wont be changing any of the nagios configs from here on out:</p>
+<div class='highlight'><pre><code class='text'># service nagios start
+Starting nagios: done.
+
+# chkconfig --level 3 nagios on
+</code></pre></div>
+<h3 id="configure_fastcgi_and_php_scriptsservices">Configure FastCGI and PHP scripts/services</h3>
+
+<p>To start you have it install epel. Many of the required packages arent provided with Amazons version of epel</p>
+<div class='highlight'><pre><code class='text'>wget http://mirror.steadfast.net/epel/6/i386/epel-release-6-7.noarch.rpm
+rpm -Uvh epel-release-6-7.noarch.rpm
+
+yum install fcgi spawn-fcgi fcgi-devel
+</code></pre></div>
+<h5 id="install_fcgiwrap">Install fcgiwrap</h5>
+
+<p>We will need to install fcgiwrap. It is a Simple server for running CGI applications over FastCGI (http://nginx.localdomain.pl/wiki/FcgiWrap). Below are the steps to install fcgiwrap:</p>
+<div class='highlight'><pre><code class='text'>cd /tmp
+git clone git://github.com/gnosek/fcgiwrap.git
+cd fcgiwrap/
+autoreconf -i
+make
+make install
+</code></pre></div>
+<h5 id="configure_spawnfcgi">Configure spawn-fcgi</h5>
+
+<p>Once fcgiwrap is installed, what we want to do is enable FastCGI and enable us to pass requests. To begin lets set up spawn-fcgi config located, /etc/sysconfig/spawn-fcgi:</p>
+<div class='highlight'><pre><code class='text'>	
+OPTIONS=&quot;-u nginx -g nginx -a 127.0.0.1 -p 9001 -f /usr/local/sbin/fcgiwrap -P /var/run/spawn-fcgi.pid&quot;
+</code></pre></div>
+<h5 id="configure_spawnfcgiphp">Configure spawn-fcgi-php</h5>
+
+<p>Next lets set up spawn-fcgi-php config located, /etc/sysconfig/spawn-fcgi-php:</p>
+<div class='highlight'><pre><code class='text'>cp /etc/sysconfig/spawn-fcgi /etc/sysconfig/spawn-fcgi-php
+</code></pre></div>
+<p>Add the following line to the newly created file:</p>
+<div class='highlight'><pre><code class='text'>OPTIONS=&quot;-u nginx -g nginx -a 127.0.0.1 -p 9002 -f /usr/bin/php-cgi -P /var/run/spawn-fcgi-php.pid&quot;
+</code></pre></div>
+<h3 id="install__configure_nginx">Install &amp; Configure nginx</h3>
+
+<p>First we will need to install nginx.</p>
+<div class='highlight'><pre><code class='text'>yum install nginx
+</code></pre></div>
+<p>Next lets configure the VirtualHost</p>
+<div class='highlight'><pre><code class='text'>	server {
+	    server_name  &lt;servername&gt;;
+    
+	    location / {
+	        auth_basic &quot;Access to the web interface is restricted&quot;;
+	        auth_basic_user_file /etc/nagios/passwd;
+		index index.php;
+	        rewrite ^/nagios/(.*) /$1 break;
+
+	        root /usr/share/nagios/html;
+	        fastcgi_index  index.php;
+	        include /etc/nginx/fastcgi_params;
+		fastcgi_param SCRIPT_FILENAME /usr/share/nagios/html$fastcgi_script_name;
+	        if ($uri ~ &quot;\.php&quot;){
+		   fastcgi_pass   127.0.0.1:9002;
+	        }
+	    }
+
+	    location ~ ^/nagios/cgi-bin/ {
+		root /usr/lib64/;        
+		include /etc/nginx/fastcgi_params;
+	        auth_basic &quot;Restricted&quot;;
+	        auth_basic_user_file /etc/nagios/passwd;
+	        fastcgi_param  AUTH_USER $remote_user;
+	        fastcgi_param  REMOTE_USER $remote_user;
+		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+	        if ($uri ~ &quot;\.cgi$&quot;){
+	            fastcgi_pass   127.0.0.1:9001;
+	        }
+	    }
+	}
+</code></pre></div>

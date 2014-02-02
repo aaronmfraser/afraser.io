@@ -1,0 +1,117 @@
+<section class='toc' id='table-of-contents'>
+  <header>
+    <h3>Contents</h3>
+  </header>
+<div id='drawer'>
+<ul>
+<li>Auto generated table of contents</li>
+</ul>
+</div>
+</section><!-- /#table-of-contents -->
+<p>Working at an employer with diverse technological needs requires that what ever tools we use be incrediably versatile and secure. Recent development in <a href="https://github.com/puppetlabs/razor-server">Puppetlabs Razor</a> has made it a viable option.</p>
+
+<h3 id="requirements">Requirements:</h3>
+
+<ul>
+<li>Functional Razor-server install</li>
+
+<li>Access to MSDN or other Windows ISO and License Key</li>
+
+<li>Virtualization with host-only networking</li>
+
+<li>Windows server 2012 R2 VM</li>
+
+<li>Windows server 2008 R2 VM</li>
+
+<li>Vagrant (optional)</li>
+</ul>
+
+<h3 id="configure_repo">Configure repo</h3>
+
+<p>Lets create a repo for our window server. This will create the razor repo-store directory and copy the contents of that iso into the intended directory.</p>
+<div class='highlight'><pre><code class='text'> 
+RAZOR_ADMIN=http://localhost
+razor create-repo --name=&lt;repo-name&gt; --iso-url=&lt;url to iso&gt;
+</code></pre></div>
+<h4 id="_resolve_dvdlibarchive_bug">- Resolve DVD/libarchive bug</h4>
+
+<p>Razor uses libarchive to setup repos from an iso file. Due to the size of windows server ISOs, it can’t open and copy the into the repo.</p>
+
+<p>To revolve this we have to mount the iso:</p>
+<div class='highlight'><pre><code class='text'>mount -o loop /mnt/cdrom &lt;iso file&gt;
+cp /mnt/cdrom/* &lt;razor-repo-store&gt;
+</code></pre></div>
+<h3 id="build_wim_file">Build wim file</h3>
+
+<p>To start it would be a good idea to read puppetlabs writeup on installing windows: <a href="https://github.com/puppetlabs/razor-server/wiki/Installing-windows">windows instructions</a></p>
+
+<h4 id="windows_2012_r2_build">Windows 2012 R2 Build</h4>
+
+<ul>
+<li>Install <a href="http://www.microsoft.com/en-us/download/details.aspx?id=39982">WinPE5</a> on your windows server.</li>
+
+<li>Download the contents of build-winpe from razor-server repo into a build directory on the windows server.</li>
+
+<li>Run the build script:</li>
+</ul>
+<div class='highlight'><pre><code class='text'>powershell -executionpolicy bypass -noninteractive -file build-razor-winpe.ps1
+</code></pre></div>
+<p>The build script mounts the wim provided with the ADK. We need to copy a file out of there, bootmgr.exe. We’ll cover the why later. While the build process is executing, open the build directory you made and head into the razor-wim-mount directory. The path in the mount point is <code>Windows\Boot\PXE\bootmgr.exe</code>. Copy the file out of the mount as it will need to be placed on the razor repo directory. I found this little trick <a href="http://blog.devicenull.org/2013/11/14/ipxe-wimboot-and-windows-server-2012r2.html">here</a></p>
+
+<p>Once the build process is completed please copy the wim and the copied bootmgr.exe file to razor.</p>
+
+<h4 id="windows_2008_r2_build">Windows 2008 R2 Build</h4>
+
+<p>Puppet build scripts are dependent on DISM cmdlets.</p>
+
+<h5 id="build_steps">Build Steps:</h5>
+
+<ul>
+<li>Install windows updates:
+<ul>
+<li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=30652">WinPE4</a></li>
+
+<li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=30653">Microsoft .NET Framework 4.5</a>
+<ul>
+<li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=40855">Windows Management Framework 4.0</a></li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li>Download the contents of build-winpe from razor-server repo into a build directory on the windows server.</li>
+
+<li>As this is not Windows 8/2012, the DISM cmdlets arent automatically imported. To do so modify the build-razor-winpe.ps1 script:</li>
+</ul>
+<div class='highlight'><pre><code class='text'>import-module dism` -&gt; `import-module &quot;C:\Program Files (x86)\Windows Kit\8.0\Assessment and Deployment Kit\Deployment Tools\amd64\DISM&quot;
+</code></pre></div>
+<ul>
+<li>Run the build script:</li>
+</ul>
+<div class='highlight'><pre><code class='text'>powershell -executionpolicy bypass -noninteractive -file build-razor-winpe.ps1
+</code></pre></div>
+<p>Dont worry about the bootmgr.exe this time, the one copied from 2012 will work here as well. Once the build completes, copy the new winpe.wim to your razor repo for windows 2008 R2.</p>
+
+<h3 id="configure_recipe">Configure Recipe</h3>
+
+<p>I found that the behaviour in of templating in the recipes to not work as directed. So please copy the windows dir and the windows.yaml and make a copy for each new version of the OS. You will them need to adjust the the boot_wim.erb in each of the recipe directories.</p>
+
+<h4 id="windows_2012_r2">Windows 2012 R2</h4>
+
+<p>Change from BOOTMGR to bootmgr.exe</p>
+<div class='highlight'><pre><code class='text'>initrd ${base}/bootmgr.exe			bootmgr.exe
+</code></pre></div>
+<h4 id="windows_2008_r2">Windows 2008 R2</h4>
+
+<p>Remove the additional fonts from the boot_wim.erb</p>
+<div class='highlight'><pre><code class='text'>initrd ${base}/boot/fonts/segmono_boot.ttf	segmono_boot.ttf
+initrd ${base}/boot/fonts/segoe_slboot.ttf	segoe_slboot.ttf
+initrd ${base}/boot/fonts/wgl4_boot.ttf		wgl4_boot.ttf
+</code></pre></div>
+<h3 id="unattendedxml">unattended.xml</h3>
+
+<p>You should remove the contents of the current unattended.xml files in 8-pro. This file will not work with Windows Server 2008 R2 nor 2012 R2. It would be best to look over Microsofts documentation process on how to construct an unattended.xml.</p>
+
+<h3 id="test">Test</h3>
+
+<p>Now all you need to do is configure a policy to use the your new repo and kickstart a windows vm.</p>
