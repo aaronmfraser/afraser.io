@@ -5,36 +5,13 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
 <link rel="alternate" type="text/html" href="http://localhost:4000" />
-<updated>2014-02-02T14:15:53-08:00</updated>
+<updated>2014-02-02T16:45:57-08:00</updated>
 <id>http://localhost:4000/</id>
 <author>
   <name>Aaron Fraser</name>
   <uri>http://localhost:4000/</uri>
   <email>me@afraser.io</email>
 </author>
-
-
-<entry>
-  <title type="html"><![CDATA[Diastatic Malt Powder]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/diastatic-malt-powder/" />
-  <id>http://localhost:4000/articles/diastatic-malt-powder</id>
-  <updated>2013-05-31T00:00:00-00:00</updated>
-  <published>2014-12-27T00:00:00-08:00</published>
-  
-  <author>
-    <name>Aaron Fraser</name>
-    <uri>http://localhost:4000</uri>
-    <email>me@afraser.io</email>
-  </author>
-  <content type="html">&lt;p&gt;Evidently it is nigh-impossible to procure diastatic malt powder in the valley… No kitchen supply or grocer carries it. Rob’s Red mill even stopped selling it recently.&lt;/p&gt;
-
-&lt;p&gt;For those looking for it: 
-&lt;a href=&quot;http://www.kingarthurflour.com/shop/items/diastatic-malt-powder-16-oz&quot;&gt;King Arthur&lt;/a&gt;
-, 
-&lt;a href=&quot;http://www.amazon.com/Diastatic-Malt-Powder-1-lb/dp/B0001AVRRE&quot;&gt;Barry Farms&lt;/a&gt;&lt;/p&gt;
-
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/diastatic-malt-powder/&quot;&gt;Diastatic Malt Powder&lt;/a&gt; was originally published by Aaron Fraser at &lt;a href=&quot;http://localhost:4000&quot;&gt;Aaron Fraser&lt;/a&gt; on December 27, 2014.&lt;/p&gt;</content>
-</entry>
 
 
 <entry>
@@ -180,6 +157,29 @@ initrd ${base}/boot/fonts/wgl4_boot.ttf		wgl4_boot.ttf
 
 
   &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/razor-windows/&quot;&gt;Razor & Windows&lt;/a&gt; was originally published by Aaron Fraser at &lt;a href=&quot;http://localhost:4000&quot;&gt;Aaron Fraser&lt;/a&gt; on January 04, 2014.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Diastatic Malt Powder]]></title>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/diastatic-malt-powder/" />
+  <id>http://localhost:4000/articles/diastatic-malt-powder</id>
+  <updated>2013-12-27T00:00:00-00:00</updated>
+  <published>2013-12-27T00:00:00-08:00</published>
+  
+  <author>
+    <name>Aaron Fraser</name>
+    <uri>http://localhost:4000</uri>
+    <email>me@afraser.io</email>
+  </author>
+  <content type="html">&lt;p&gt;Evidently it is nigh-impossible to procure diastatic malt powder in the valley… No kitchen supply or grocer carries it. Rob’s Red mill even stopped selling it recently.&lt;/p&gt;
+
+&lt;p&gt;For those looking for it: 
+&lt;a href=&quot;http://www.kingarthurflour.com/shop/items/diastatic-malt-powder-16-oz&quot;&gt;King Arthur&lt;/a&gt;
+, 
+&lt;a href=&quot;http://www.amazon.com/Diastatic-Malt-Powder-1-lb/dp/B0001AVRRE&quot;&gt;Barry Farms&lt;/a&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/diastatic-malt-powder/&quot;&gt;Diastatic Malt Powder&lt;/a&gt; was originally published by Aaron Fraser at &lt;a href=&quot;http://localhost:4000&quot;&gt;Aaron Fraser&lt;/a&gt; on December 27, 2013.&lt;/p&gt;</content>
 </entry>
 
 

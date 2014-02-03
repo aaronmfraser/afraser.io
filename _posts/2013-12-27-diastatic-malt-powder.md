@@ -2,14 +2,12 @@
 layout: post
 title: Diastatic Malt Powder
 description: "hardest thing to find"
-modified: 2013-05-31
+modified: 2013-12-27
 category: articles
 tags: [baking]
 share: false
 image:
-  feature: servers.jpg
-  credit: wikimedia.org
-  creditlink: http://wikimedia.org
+  feature: mba-coffee-trim.png
 ---
 
 
