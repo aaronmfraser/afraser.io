@@ -7,7 +7,7 @@ category: articles
 tags: [baking]
 share: false
 image:
-  feature: mba-coffee-trim.png
+  feature: mba-coffee-trim.jpg
 ---
 
 
