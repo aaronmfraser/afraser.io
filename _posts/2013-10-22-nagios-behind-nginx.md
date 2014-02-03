@@ -15,8 +15,8 @@ image:
 
 Recently changed jobs, Diseny Interactive, and their default web server is Nginx. So to better support nginx I decided to migrate all of the services that I play with to work behind it and today was Nagios's turn. I followed a few other blogs help in getting the configs straighted out but below is another rendition of this exercise.
 
-<!-- more -->
-SPECS:
+
+## Specs:
 System: Amazon AMI   
 Server: Nginx 1.0.15   
 Nagios: 3.3.1   

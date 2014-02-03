@@ -5,7 +5,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
 <link rel="alternate" type="text/html" href="http://localhost:4000" />
-<updated>2014-02-02T16:45:57-08:00</updated>
+<updated>2014-02-02T17:14:31-08:00</updated>
 <id>http://localhost:4000/</id>
 <author>
   <name>Aaron Fraser</name>
@@ -197,9 +197,8 @@ initrd ${base}/boot/fonts/wgl4_boot.ttf		wgl4_boot.ttf
   </author>
   <content type="html">&lt;p&gt;Recently changed jobs, Diseny Interactive, and their default web server is Nginx. So to better support nginx I decided to migrate all of the services that I play with to work behind it and today was Nagios’s turn. I followed a few other blogs help in getting the configs straighted out but below is another rendition of this exercise.&lt;/p&gt;
 
-&lt;!-- more --&gt;
-&lt;p&gt;SPECS:
-System: Amazon AMI &lt;br /&gt;
+&lt;h2 id=&quot;specs&quot;&gt;Specs:&lt;/h2&gt;
+&lt;p&gt;System: Amazon AMI &lt;br /&gt;
 Server: Nginx 1.0.15 &lt;br /&gt;
 Nagios: 3.3.1   &lt;/p&gt;
 
