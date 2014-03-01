@@ -3,27 +3,124 @@
 <title type="text">Aaron Fraser</title>
 <subtitle type="text">Distilled thought of a Systems Engineer</subtitle>
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="http://afraser.io/feed.xml" />
-<link rel="alternate" type="text/html" href="http://afraser.io" />
-<updated>2014-02-02T18:39:43-08:00</updated>
-<id>http://afraser.io/</id>
+<link rel="self" type="application/atom+xml" href="http://0.0.0.0:4000/feed.xml" />
+<link rel="alternate" type="text/html" href="http://0.0.0.0:4000" />
+<updated>2014-03-01T00:40:23-08:00</updated>
+<id>http://0.0.0.0:4000/</id>
 <author>
   <name>Aaron Fraser</name>
-  <uri>http://afraser.io/</uri>
+  <uri>http://0.0.0.0:4000/</uri>
   <email>me@afraser.io</email>
 </author>
 
 
 <entry>
+  <title type="html"><![CDATA[Why Razor?]]></title>
+  <link rel="alternate" type="text/html" href="http://0.0.0.0:4000/post/why-razor/" />
+  <id>http://0.0.0.0:4000/post/why-razor</id>
+  <updated>2014-02-28T00:00:00-00:00</updated>
+  <published>2014-02-28T00:00:00-08:00</published>
+  
+  <author>
+    <name>Aaron Fraser</name>
+    <uri>http://0.0.0.0:4000</uri>
+    <email>me@afraser.io</email>
+  </author>
+  <content type="html">&lt;p&gt;Working at an employer with diverse technological needs requires that what ever tools we use be incrediably versatile and secure. Recent development in &lt;a href=&quot;https://github.com/puppetlabs/razor-server&quot;&gt;Puppetlabs Razor&lt;/a&gt; has made it a viable option. &lt;/p&gt;
+
+&lt;h2 id=&quot;what-is-the-point&quot;&gt;What is the point?&lt;/h2&gt;
+&lt;p&gt;If anyone has spent any time in the datacenter managing hardware is a tricky task. Traditional provisioning is based on an unattended scripting framework that relies on core infrastructure technologies like tftp, pxelinux, dhcp, etc… Basically its about getting an OS on hardware, at thats more difficult that it sounds. &lt;/p&gt;
+
+&lt;p&gt;How does one go about provisioning an OS? First a server would need to get an IP address most likely through DHCP. Within DHCP is the “next-server” and “file” options, this enables DHCP-clients to boot into an ROM image to then take further steps. Next steps are either &lt;a href=&quot;http://www.syslinux.org/wiki/index.php/PXELINUX&quot;&gt;PXELINUX&lt;/a&gt; or &lt;a href=&quot;http://ipxe.org/&quot;&gt;iPXE&lt;/a&gt; instructions. Both of these will trigger into network boot of an OS on first boot. &lt;/p&gt;
+
+&lt;h2 id=&quot;history-lesson&quot;&gt;History Lesson&lt;/h2&gt;
+&lt;p&gt;When I first started out as a sysadm I was working for a “cloud” storage company before cloud was a thing. This meant LOTS of storage on physical servers. We managed many cabinets of servers and expanded our footprint quite fast. Since our systems were RedHat based, we relied mostly on traditional kickstarting frameworks using DHCP, TFTP, PXELINUX, Kickstart (anaconda) and a MESS of bash. This worked well for us at the time. Configuration was simply configuring DHCPD with the MAC address for each server to an Kick IP, PXELINUX config associating the HEX of the Kick IP to pxelinux.cfg for the OS and a config file associating an Kick IP address to a hostname and Dest IP.
+&lt;br /&gt;
+&lt;br /&gt;
+As nice as this was it was a difficult task to configure more than 10 servers at a time. You had to collect the MACs either with iDRAC/iLO or shipping labels. The configuring of DHCPD is a manual process(retrieving Kick IP, config entry, etc..) as were ther PXELINUX and config file changes. Automation was attempted but nothing as very clean and grabbing MACs slowed the whole process WAY down. This is what I consider an Instruction-based provisioning tool. The tool itself doesnt have a way to identify hardware and make a decision and the configuration isnt separated from the hardware. When you get to an organization where you need to provision hundreds of systems, Instruction-based tools begin to lose there benefits. 
+&lt;br /&gt;
+&lt;br /&gt;
+What if there was a better way?&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;below-is-a-list-of-common-tools&quot;&gt;Below is a list of common tools:&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/puppetlabs/razor-server&quot;&gt;Razor&lt;/a&gt; - Extensible ruby-based provisioning tool&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://maas.ubuntu.com/&quot;&gt;MaaS&lt;/a&gt; - Ubuntu BareMetal provisioning&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://crowbar.github.io/home.html&quot;&gt;Crowbar&lt;/a&gt; - Cluster provisioning&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.stackiq.com/&quot;&gt;StackIQ&lt;/a&gt; - Cluster-based Provisioning&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.cobblerd.org/&quot;&gt;Cobbler&lt;/a&gt; - Kickstart application&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.rocksclusters.org/wordpress/&quot;&gt;Rocks&lt;/a&gt; - HPC Appliance provisioning&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Windows_Deployment_Services&quot;&gt;WDS&lt;/a&gt; - Windows Distribution Services&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.fogproject.org/?q=node/1&quot;&gt;Fog Project&lt;/a&gt; - Free Provisioning &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://theforeman.org/&quot;&gt;theForeman&lt;/a&gt; - BareMetal/Virtual Lifecycle for puppet&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Where I work, we have hundreds of systems. I mean LOTS, like 10x what I had at the storage company. As of this week we have ~100 systems that need an OS. I was able to provision them with nothing more than turning them on and associating the Serial number with a name and IP. About 20 minutes later 80 servers have an OS and are ready for use. This is the benefit of a Discovery-Based provisioning system. 
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;basic-concept&quot;&gt;Basic concept:&lt;/h2&gt;
+
+&lt;p&gt;Below is the explanation of a Discovery-based Provisioning workflow:
+&lt;img src=&quot;http://0.0.0.0:4000/images/BMaaS-workflow.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;discovery&quot;&gt;Discovery&lt;/h4&gt;
+&lt;ol&gt;
+  &lt;li&gt;Provisioning Server is built and all services turned on.&lt;/li&gt;
+  &lt;li&gt;New hardware is racked and powered on. &lt;/li&gt;
+  &lt;li&gt;Hardware PXE boots using DHCP, TFTP and iPXE. &lt;/li&gt;
+  &lt;li&gt;iPXE chainloads and checks into Provisioning Server.&lt;/li&gt;
+  &lt;li&gt;iPXE lastly loads in-memory OS onto hardware. &lt;/li&gt;
+  &lt;li&gt;In-memory OS collects facts about hardware and posts to Provisioning server. &lt;/li&gt;
+  &lt;li&gt;Waits for next steps.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;config&quot;&gt;Config&lt;/h4&gt;
+&lt;ol&gt;
+  &lt;li&gt;Collect available hardware nodes from provisioning server.&lt;/li&gt;
+  &lt;li&gt;Associates OS and node information to hardware from the available nodes.&lt;/li&gt;
+  &lt;li&gt;Post config to Provisioning server.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;provisiong&quot;&gt;Provisiong&lt;/h4&gt;
+&lt;ol&gt;
+  &lt;li&gt;Config is posted to Provisioning server, altering the “next steps” for each node.&lt;/li&gt;
+  &lt;li&gt;Nodes check in for next steps and instructions are given to restart.&lt;/li&gt;
+  &lt;li&gt;On next PXE boot server chainload iPXE again but instead of the in-memory OS, it loads the install instructions. &lt;/li&gt;
+  &lt;li&gt;OS is installed according to configured recipe&lt;/li&gt;
+  &lt;li&gt;New OS on hardware registers that it has completed its install to the Provisioning server closing the loop.&lt;/li&gt;
+  &lt;li&gt;Broker handoff is initiated. &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;A little bit of scripting at the Config step and you could be capable of building hundreds of servers quickly and precisely. Even better some provisioning tools are designed to provision based on a profile. By this I mean you setup a list of parameters that need to be met for a particular OS to be installed. These profiles are designed to be grow so for each server attempting to install the hostname and IP increment. So say a profile will trigger if the hardware has 4 Hex-Core Processors and 192GB RAM, if matched it will install Hypervisor. For organizations that deal with large clusters of the same hardware, this can be incredibly powerful. Rack and power and in 30 minutes an OS will be installed. &lt;/p&gt;
+
+&lt;h2 id=&quot;what-about-the-app&quot;&gt;What about the app?&lt;/h2&gt;
+&lt;p&gt;The app would be the most difficult aspect to install. Countless tools have been built to accomplish this feat and in my mind not a challenge that provisioning needs to tackle. For the customer that are looking to do one thing and one thing well, then a all-in-one provisioner makes immense sense. When your needs range from lots of different hardware, every version of OS one can image and every imaginal application stack makes a all-in-one tool nigh impossible. A good provisioning tool should offer a method to integrate with modern configuration management tools or clustering tools. &lt;/p&gt;
+
+&lt;h2 id=&quot;so-again-why-razor&quot;&gt;So again… why razor?&lt;/h2&gt;
+&lt;p&gt;Razor is the only tool that does the following:
+1. Declares clearly what it will/willnot control. 
+2. Unlike Cobbler and other tools, it doesnt control DHCP config. Completely dependent on DHCP to provide IP to any hardware so that it will load the razor discovery tool. 
+2. Abstracts itself to a simple API that does the heavy lifting of OS provisioning called “Tasks”. 
+3. Provides connection points between system management toolsets using what they call “Brokers”. 
+&lt;br /&gt;
+&lt;br /&gt;
+With this framework we were able to build a system that can install systems ranging from clusters of Xen Hypervisors to a single Windows 2012 R2 server. That is a powerful tool, especially when the toolset is engineered where it can be managed with modern &lt;a href=&quot;http://en.wikipedia.org/wiki/Continuous_integration&quot;&gt;CI&lt;/a&gt; and &lt;a href=&quot;http://en.wikipedia.org/wiki/Continuous_delivery&quot;&gt;CD&lt;/a&gt; workflows.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://0.0.0.0:4000/post/why-razor/&quot;&gt;Why Razor?&lt;/a&gt; was originally published by Aaron Fraser at &lt;a href=&quot;http://0.0.0.0:4000&quot;&gt;Aaron Fraser&lt;/a&gt; on February 28, 2014.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
   <title type="html"><![CDATA[Razor & Windows]]></title>
-  <link rel="alternate" type="text/html" href="http://afraser.io/articles/razor-windows/" />
-  <id>http://afraser.io/articles/razor-windows</id>
+  <link rel="alternate" type="text/html" href="http://0.0.0.0:4000/articles/razor-windows/" />
+  <id>http://0.0.0.0:4000/articles/razor-windows</id>
   <updated>2013-05-31T00:00:00-00:00</updated>
   <published>2014-01-04T00:00:00-08:00</published>
   
   <author>
     <name>Aaron Fraser</name>
-    <uri>http://afraser.io</uri>
+    <uri>http://0.0.0.0:4000</uri>
     <email>me@afraser.io</email>
   </author>
   <content type="html">&lt;section id=&quot;table-of-contents&quot; class=&quot;toc&quot;&gt;
@@ -156,20 +253,20 @@ initrd ${base}/boot/fonts/wgl4_boot.ttf		wgl4_boot.ttf
 &lt;p&gt;Now all you need to do is configure a policy to use the your new repo and kickstart a windows vm. &lt;/p&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://afraser.io/articles/razor-windows/&quot;&gt;Razor & Windows&lt;/a&gt; was originally published by Aaron Fraser at &lt;a href=&quot;http://afraser.io&quot;&gt;Aaron Fraser&lt;/a&gt; on January 04, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://0.0.0.0:4000/articles/razor-windows/&quot;&gt;Razor & Windows&lt;/a&gt; was originally published by Aaron Fraser at &lt;a href=&quot;http://0.0.0.0:4000&quot;&gt;Aaron Fraser&lt;/a&gt; on January 04, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Diastatic Malt Powder]]></title>
-  <link rel="alternate" type="text/html" href="http://afraser.io/articles/diastatic-malt-powder/" />
-  <id>http://afraser.io/articles/diastatic-malt-powder</id>
+  <link rel="alternate" type="text/html" href="http://0.0.0.0:4000/articles/diastatic-malt-powder/" />
+  <id>http://0.0.0.0:4000/articles/diastatic-malt-powder</id>
   <updated>2013-12-27T00:00:00-00:00</updated>
   <published>2013-12-27T00:00:00-08:00</published>
   
   <author>
     <name>Aaron Fraser</name>
-    <uri>http://afraser.io</uri>
+    <uri>http://0.0.0.0:4000</uri>
     <email>me@afraser.io</email>
   </author>
   <content type="html">&lt;p&gt;Evidently it is nigh-impossible to procure diastatic malt powder in the valley… No kitchen supply or grocer carries it. Rob’s Red mill even stopped selling it recently.&lt;/p&gt;
@@ -179,20 +276,20 @@ initrd ${base}/boot/fonts/wgl4_boot.ttf		wgl4_boot.ttf
 , 
 &lt;a href=&quot;http://www.amazon.com/Diastatic-Malt-Powder-1-lb/dp/B0001AVRRE&quot;&gt;Barry Farms&lt;/a&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://afraser.io/articles/diastatic-malt-powder/&quot;&gt;Diastatic Malt Powder&lt;/a&gt; was originally published by Aaron Fraser at &lt;a href=&quot;http://afraser.io&quot;&gt;Aaron Fraser&lt;/a&gt; on December 27, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://0.0.0.0:4000/articles/diastatic-malt-powder/&quot;&gt;Diastatic Malt Powder&lt;/a&gt; was originally published by Aaron Fraser at &lt;a href=&quot;http://0.0.0.0:4000&quot;&gt;Aaron Fraser&lt;/a&gt; on December 27, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Nagios behind Nginx]]></title>
-  <link rel="alternate" type="text/html" href="http://afraser.io/articles/nagios-behind-nginx/" />
-  <id>http://afraser.io/articles/nagios-behind-nginx</id>
+  <link rel="alternate" type="text/html" href="http://0.0.0.0:4000/articles/nagios-behind-nginx/" />
+  <id>http://0.0.0.0:4000/articles/nagios-behind-nginx</id>
   <updated>2013-05-31T00:00:00-00:00</updated>
   <published>2013-10-22T00:00:00-07:00</published>
   
   <author>
     <name>Aaron Fraser</name>
-    <uri>http://afraser.io</uri>
+    <uri>http://0.0.0.0:4000</uri>
     <email>me@afraser.io</email>
   </author>
   <content type="html">&lt;p&gt;Recently changed jobs, Diseny Interactive, and their default web server is Nginx. So to better support nginx I decided to migrate all of the services that I play with to work behind it and today was Nagios’s turn. I followed a few other blogs help in getting the configs straighted out but below is another rendition of this exercise.&lt;/p&gt;
@@ -307,7 +404,7 @@ To begin lets set up spawn-fcgi config located, /etc/sysconfig/spawn-fcgi:&lt;/p
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://afraser.io/articles/nagios-behind-nginx/&quot;&gt;Nagios behind Nginx&lt;/a&gt; was originally published by Aaron Fraser at &lt;a href=&quot;http://afraser.io&quot;&gt;Aaron Fraser&lt;/a&gt; on October 22, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://0.0.0.0:4000/articles/nagios-behind-nginx/&quot;&gt;Nagios behind Nginx&lt;/a&gt; was originally published by Aaron Fraser at &lt;a href=&quot;http://0.0.0.0:4000&quot;&gt;Aaron Fraser&lt;/a&gt; on October 22, 2013.&lt;/p&gt;</content>
 </entry>
 
 </feed>

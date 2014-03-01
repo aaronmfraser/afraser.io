@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://afraser.io</loc>
+        <loc>http://0.0.0.0:4000</loc>
     </url>
     
     
     <url>
-        <loc>http://afraser.io/articles/razor-windows/</loc>
+        <loc>http://0.0.0.0:4000/post/why-razor/</loc>
     </url>
     
     <url>
-        <loc>http://afraser.io/articles/diastatic-malt-powder/</loc>
+        <loc>http://0.0.0.0:4000/articles/razor-windows/</loc>
     </url>
     
     <url>
-        <loc>http://afraser.io/articles/nagios-behind-nginx/</loc>
+        <loc>http://0.0.0.0:4000/articles/diastatic-malt-powder/</loc>
+    </url>
+    
+    <url>
+        <loc>http://0.0.0.0:4000/articles/nagios-behind-nginx/</loc>
     </url>
     
 </urlset>
