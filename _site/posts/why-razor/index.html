@@ -1,0 +1,251 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Why Razor? &#8211; Aaron Fraser</title>
+<meta name="description" content="Why ask why try an api">
+<meta name="keywords" content="maas, razor, iaas">
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://0.0.0.0:4000/images/servers.jpg">
+
+<meta name="twitter:title" content="Why Razor?">
+<meta name="twitter:description" content="Why ask why try an api">
+<meta name="twitter:creator" content="@aaronmfraser">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Why Razor?">
+<meta property="og:description" content="Why ask why try an api">
+<meta property="og:url" content="http://0.0.0.0:4000/posts/why-razor/">
+<meta property="og:site_name" content="Aaron Fraser">
+
+
+
+
+
+<link rel="canonical" href="http://0.0.0.0:4000/posts/why-razor/">
+<link href="http://0.0.0.0:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Aaron Fraser Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://0.0.0.0:4000/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="http://0.0.0.0:4000/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://0.0.0.0:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://0.0.0.0:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/site-logo-32.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://0.0.0.0:4000/images/site-logo-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://0.0.0.0:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://0.0.0.0:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="post">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+<div class="navigation-wrapper">
+	<div class="site-name">
+		<a href="http://0.0.0.0:4000">Aaron Fraser</a>
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="http://0.0.0.0:4000/about/" >About</a></li>
+		        
+				<li><a href="http://0.0.0.0:4000/posts/" >Posts</a></li>
+		        
+				<li><a href="http://photos.afraser.io" target="_blank">Photos</a></li>
+		        
+		        <li><i class="icon-feed"></i> <a href="http://0.0.0.0:4000/feed.xml" title="Atom/RSS feed">Feed</a>
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+
+<div class="image-wrap">
+  <img src="http://0.0.0.0:4000/images/servers.jpg" alt="Why Razor? feature image">
+  <span class="image-credit">Photo Credit: <a href="http://wikimedia.org">wikimedia.org</a></span>
+</div><!-- /.image-wrap -->
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    <img src="http://0.0.0.0:4000/images/bio-photo.jpeg" class="bio-photo" alt="Aaron Fraser bio photo"></a>
+<h3>Aaron Fraser</h3>
+<p>Systems Automator</p>
+<a href="http://twitter.com/aaronmfraser" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>
+
+
+<a href="http://linkedin.com/in/aaronmfraser" class="author-social" target="_blank"><i class="icon-linkedin"></i> LinkedIn</a>
+
+<a href="http://github.com/aaronmfraser" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+  </div>
+  <article>
+    <div class="headline-wrap">
+      <h1>Why Razor?</h1>
+      <h2></h2>
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap">
+      <p>Working at an employer with diverse technological needs requires that what ever tools we use be incrediably versatile and secure. Recent development in <a href="https://github.com/puppetlabs/razor-server">Puppetlabs Razor</a> has made it a viable option. </p>
+
+<h2 id="what-is-the-point">What is the point?</h2>
+<p>If anyone has spent any time in the datacenter managing hardware is a tricky task. Traditional provisioning is based on an unattended scripting framework that relies on core infrastructure technologies like tftp, pxelinux, dhcp, etc… Basically its about getting an OS on hardware, at thats more difficult that it sounds. </p>
+
+<p>How does one go about provisioning an OS? First a server would need to get an IP address most likely through DHCP. Within DHCP is the “next-server” and “file” options, this enables DHCP-clients to boot into an ROM image to then take further steps. Next steps are either <a href="http://www.syslinux.org/wiki/index.php/PXELINUX">PXELINUX</a> or <a href="http://ipxe.org/">iPXE</a> instructions. Both of these will trigger into network boot of an OS on first boot. </p>
+
+<h2 id="history-lesson">History Lesson</h2>
+<p>When I first started out as a sysadm I was working for a “cloud” storage company before cloud was a thing. This meant LOTS of storage on physical servers. We managed many cabinets of servers and expanded our footprint quite fast. Since our systems were RedHat based, we relied mostly on traditional kickstarting frameworks using DHCP, TFTP, PXELINUX, Kickstart (anaconda) and a MESS of bash. This worked well for us at the time. Configuration was simply configuring DHCPD with the MAC address for each server to an Kick IP, PXELINUX config associating the HEX of the Kick IP to pxelinux.cfg for the OS and a config file associating an Kick IP address to a hostname and Dest IP.
+<br />
+<br />
+As nice as this was it was a difficult task to configure more than 10 servers at a time. You had to collect the MACs either with iDRAC/iLO or shipping labels. The configuring of DHCPD is a manual process(retrieving Kick IP, config entry, etc..) as were ther PXELINUX and config file changes. Automation was attempted but nothing as very clean and grabbing MACs slowed the whole process WAY down. This is what I consider an Instruction-based provisioning tool. The tool itself doesnt have a way to identify hardware and make a decision and the configuration isnt separated from the hardware. When you get to an organization where you need to provision hundreds of systems, Instruction-based tools begin to lose there benefits. 
+<br />
+<br />
+What if there was a better way?<br /></p>
+
+<h4 id="below-is-a-list-of-common-tools">Below is a list of common tools:</h4>
+<ul>
+  <li><a href="https://github.com/puppetlabs/razor-server">Razor</a> - Extensible ruby-based provisioning tool</li>
+  <li><a href="https://maas.ubuntu.com/">MaaS</a> - Ubuntu BareMetal provisioning</li>
+  <li><a href="http://crowbar.github.io/home.html">Crowbar</a> - Cluster provisioning</li>
+  <li><a href="http://www.stackiq.com/">StackIQ</a> - Cluster-based Provisioning</li>
+  <li><a href="http://www.cobblerd.org/">Cobbler</a> - Kickstart application</li>
+  <li><a href="http://www.rocksclusters.org/wordpress/">Rocks</a> - HPC Appliance provisioning</li>
+  <li><a href="http://en.wikipedia.org/wiki/Windows_Deployment_Services">WDS</a> - Windows Distribution Services</li>
+  <li><a href="http://www.fogproject.org/?q=node/1">Fog Project</a> - Free Provisioning </li>
+  <li><a href="http://theforeman.org/">theForeman</a> - BareMetal/Virtual Lifecycle for puppet</li>
+</ul>
+
+<p>Where I work, we have hundreds of systems. I mean LOTS, like 10x what I had at the storage company. As of this week we have ~100 systems that need an OS. I was able to provision them with nothing more than turning them on and associating the Serial number with a name and IP. About 20 minutes later 80 servers have an OS and are ready for use. This is the benefit of a Discovery-Based provisioning system. 
+<br />
+<br /></p>
+
+<h2 id="basic-concept">Basic concept:</h2>
+
+<p>Below is the explanation of a Discovery-based Provisioning workflow:
+<img src="http://0.0.0.0:4000/images/BMaaS-workflow.png" alt="" /></p>
+
+<h4 id="discovery">Discovery</h4>
+<ol>
+  <li>Provisioning Server is built and all services turned on.</li>
+  <li>New hardware is racked and powered on. </li>
+  <li>Hardware PXE boots using DHCP, TFTP and iPXE. </li>
+  <li>iPXE chainloads and checks into Provisioning Server.</li>
+  <li>iPXE lastly loads in-memory OS onto hardware. </li>
+  <li>In-memory OS collects facts about hardware and posts to Provisioning server. </li>
+  <li>Waits for next steps.</li>
+</ol>
+
+<h4 id="config">Config</h4>
+<ol>
+  <li>Collect available hardware nodes from provisioning server.</li>
+  <li>Associates OS and node information to hardware from the available nodes.</li>
+  <li>Post config to Provisioning server.</li>
+</ol>
+
+<h4 id="provisiong">Provisiong</h4>
+<ol>
+  <li>Config is posted to Provisioning server, altering the “next steps” for each node.</li>
+  <li>Nodes check in for next steps and instructions are given to restart.</li>
+  <li>On next PXE boot server chainload iPXE again but instead of the in-memory OS, it loads the install instructions. </li>
+  <li>OS is installed according to configured recipe</li>
+  <li>New OS on hardware registers that it has completed its install to the Provisioning server closing the loop.</li>
+  <li>Broker handoff is initiated. </li>
+</ol>
+
+<p>A little bit of scripting at the Config step and you could be capable of building hundreds of servers quickly and precisely. Even better some provisioning tools are designed to provision based on a profile. By this I mean you setup a list of parameters that need to be met for a particular OS to be installed. These profiles are designed to be grow so for each server attempting to install the hostname and IP increment. So say a profile will trigger if the hardware has 4 Hex-Core Processors and 192GB RAM, if matched it will install Hypervisor. For organizations that deal with large clusters of the same hardware, this can be incredibly powerful. Rack and power and in 30 minutes an OS will be installed. </p>
+
+<h2 id="what-about-the-app">What about the app?</h2>
+<p>The app would be the most difficult aspect to install. Countless tools have been built to accomplish this feat and in my mind not a challenge that provisioning needs to tackle. For the customer that are looking to do one thing and one thing well, then a all-in-one provisioner makes immense sense. When your needs range from lots of different hardware, every version of OS one can image and every imaginal application stack makes a all-in-one tool nigh impossible. A good provisioning tool should offer a method to integrate with modern configuration management tools or clustering tools. </p>
+
+<h2 id="so-again-why-razor">So again… why razor?</h2>
+<p>Razor is the only tool that does the following:
+1. Declares clearly what it will/willnot control. 
+2. Unlike Cobbler and other tools, it doesnt control DHCP config. Completely dependent on DHCP to provide IP to any hardware so that it will load the razor discovery tool. 
+2. Abstracts itself to a simple API that does the heavy lifting of OS provisioning called “Tasks”. 
+3. Provides connection points between system management toolsets using what they call “Brokers”. 
+<br />
+<br />
+With this framework we were able to build a system that can install systems ranging from clusters of Xen Hypervisors to a single Windows 2012 R2 server. That is a powerful tool, especially when the toolset is engineered where it can be managed with modern <a href="http://en.wikipedia.org/wiki/Continuous_integration">CI</a> and <a href="http://en.wikipedia.org/wiki/Continuous_delivery">CD</a> workflows.</p>
+
+      <hr />
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          <img src="http://0.0.0.0:4000/images/bio-photo.jpeg" class="bio-photo" alt="Aaron Fraser bio photo"></a>
+<h3>Aaron Fraser</h3>
+<p>Systems Automator</p>
+<a href="http://twitter.com/aaronmfraser" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>
+
+
+<a href="http://linkedin.com/in/aaronmfraser" class="author-social" target="_blank"><i class="icon-linkedin"></i> LinkedIn</a>
+
+<a href="http://github.com/aaronmfraser" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+
+
+        </div>
+        <p class="byline"><strong>Why Razor?</strong> was published on <time datetime="2014-02-28T00:00:00-08:00">February 28, 2014</time> and last modified on <time datetime="2014-02-28">February 28, 2014</time> by <a href="http://0.0.0.0:4000/about" title="About Aaron Fraser">Aaron Fraser</a>.</p>
+      </footer>
+    </div><!-- /.article-wrap -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <div class="related-articles">
+  <h4>You might also enjoy <small class="pull-right">(<a href="http://0.0.0.0:4000/posts/">View all posts</a>)</small></h4>
+    <ul>
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      
+    
+    </ul>
+    <hr />
+  </div><!-- /.related-articles -->
+  <footer>
+    <span>&copy; 2014 Aaron Fraser. Using <a href="http://wiki.nginx.org/Main">Nginx</a>, <a href="http://jekyllrb.com/">Jekyll</a> & <a href="http://github.com/mmistakes/minimal-mistakes/">minimal-mistakes</a></span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://0.0.0.0:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://0.0.0.0:4000/assets/js/scripts.min.js"></script>
+	        
+
+</body>
+</html>
