@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Razor & Windows
+title: Razor and Windows
 description: "Provisioning Windows with BMaaS"
 modified: 2013-05-31
 category: articles
