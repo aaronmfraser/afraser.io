@@ -5,7 +5,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://0.0.0.0:4000/feed.xml" />
 <link rel="alternate" type="text/html" href="http://0.0.0.0:4000" />
-<updated>2014-03-01T00:40:23-08:00</updated>
+<updated>2014-03-01T01:20:13-08:00</updated>
 <id>http://0.0.0.0:4000/</id>
 <author>
   <name>Aaron Fraser</name>
@@ -108,6 +108,78 @@ What if there was a better way?&lt;br /&gt;&lt;/p&gt;
 With this framework we were able to build a system that can install systems ranging from clusters of Xen Hypervisors to a single Windows 2012 R2 server. That is a powerful tool, especially when the toolset is engineered where it can be managed with modern &lt;a href=&quot;http://en.wikipedia.org/wiki/Continuous_integration&quot;&gt;CI&lt;/a&gt; and &lt;a href=&quot;http://en.wikipedia.org/wiki/Continuous_delivery&quot;&gt;CD&lt;/a&gt; workflows.&lt;/p&gt;
 
   &lt;p&gt;&lt;a href=&quot;http://0.0.0.0:4000/post/why-razor/&quot;&gt;Why Razor?&lt;/a&gt; was originally published by Aaron Fraser at &lt;a href=&quot;http://0.0.0.0:4000&quot;&gt;Aaron Fraser&lt;/a&gt; on February 28, 2014.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[SSH and you]]></title>
+  <link rel="alternate" type="text/html" href="http://0.0.0.0:4000/articles/ssh-configs/" />
+  <id>http://0.0.0.0:4000/articles/ssh-configs</id>
+  <updated>2014-02-24T00:00:00-00:00</updated>
+  <published>2014-02-24T00:00:00-08:00</published>
+  
+  <author>
+    <name>Aaron Fraser</name>
+    <uri>http://0.0.0.0:4000</uri>
+    <email>me@afraser.io</email>
+  </author>
+  <content type="html">&lt;p&gt;Recently been spending alot of time working on side projects for friends and past employers. The number of servers that needs my attention has increased and each of them have separate usernames and ssh keys. To manage this I was using shell aliases &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;alias &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;mysrvr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;ssh -i ~/.ssh/mysrvr.priv root@mysrvr.afraser.io&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;These worked great and all but I still didnt have an easy way to scp files. Trying to make an alias dynamic enough to be able to scp was a pain (and a useless waste of time..)
+Then one day I was exploring this issue and found ssh configs. They proved to be far more powerful. Soon I replaced all my aliases with an ssh_config&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;Host c1-dev
+   HostName client1-server01.test.co
+   User root
+   IdentityFile ~/.ssh/client1.pem
+Host c2-dev01
+   HostName client2-server01.anothertest.co
+   User root
+   IdentityFile ~/.ssh/client2.pem
+Host mysrvr
+   HostName mysrvr.afraser.io
+   User root
+   IdentityFile ~/.ssh/mysrvr.priv
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;I have found situations were having an ssh config wasnt going to work out.If you have servers that are only accessible from a very restricted network and dont support ssh keys for what ever reason there is SSHPASS.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+First you’ll need to install it:
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;sudo apt-get install sshpass
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;To use ssh pass its best to have a sourced file with an environment variable:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;cat bastion-login
+  &lt;span class=&quot;nv&quot;&gt;SSH_PASS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;some-horribly-insecure-password&amp;quot;&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;source &lt;/span&gt;bastion-login
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Once the file is sourced you can then simply prepend sshpass to your standard ssh commands like so:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;sshpass -e ssh -o &lt;span class=&quot;nv&quot;&gt;StrictHostKeyChecking&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;no  cloud-user@mysrvr.afraser.io 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In the above example you will see the &lt;code&gt;-o StrictHostKeyChecking=no&lt;/code&gt; this simply auto-accepts/ignores the Host Key check you would normally acknowledge for the first connection to the destination server.&lt;/p&gt;
+
+&lt;p&gt;Those error typically look like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ssh cloud-users@mysrvr.afraser.io
+The authenticity of host &lt;span class=&quot;s1&quot;&gt;&amp;#39;mysrvr.afraser.io (208.9.150.2)&amp;#39;&lt;/span&gt; can&lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt;t be established.
+RSA key fingerprint is cf:1b:f4:1f:c5:aa:b1:1e:bf:4e:5e:cf:53:fa:a8:73.
+Are you sure you want to &lt;span class=&quot;k&quot;&gt;continue &lt;/span&gt;connecting &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;yes/no&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;? 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Hopefully this can help make sshing a more pleasurable experience.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://0.0.0.0:4000/articles/ssh-configs/&quot;&gt;SSH and you&lt;/a&gt; was originally published by Aaron Fraser at &lt;a href=&quot;http://0.0.0.0:4000&quot;&gt;Aaron Fraser&lt;/a&gt; on February 24, 2014.&lt;/p&gt;</content>
 </entry>
 
 

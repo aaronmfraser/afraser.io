@@ -10,6 +10,10 @@
     </url>
     
     <url>
+        <loc>http://0.0.0.0:4000/articles/ssh-configs/</loc>
+    </url>
+    
+    <url>
         <loc>http://0.0.0.0:4000/articles/razor-windows/</loc>
     </url>
     
