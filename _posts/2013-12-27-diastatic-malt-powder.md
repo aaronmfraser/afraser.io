@@ -3,7 +3,7 @@ layout: post
 title: Diastatic Malt Powder
 description: "hardest thing to find"
 modified: 2013-12-27
-category: articles
+category: posts
 tags: [baking]
 share: false
 image:

@@ -3,7 +3,7 @@ layout: post
 title: SSH and you
 description: "how to make ssh easier"
 modified: 2014-02-24
-category: articles
+category: posts
 tags: [sysops,ssh]
 share: false
 image:

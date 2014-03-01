@@ -3,7 +3,7 @@ layout: post
 title: Razor and Windows
 description: "Provisioning Windows with BMaaS"
 modified: 2013-05-31
-category: articles
+category: posts
 tags: [windows,maas,razor,iaas,puppetlabs]
 share: false
 image:

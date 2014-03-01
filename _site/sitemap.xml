@@ -6,23 +6,23 @@
     
     
     <url>
-        <loc>http://0.0.0.0:4000/post/why-razor/</loc>
+        <loc>http://0.0.0.0:4000/posts/why-razor/</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/articles/ssh-configs/</loc>
+        <loc>http://0.0.0.0:4000/posts/ssh-configs/</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/articles/razor-windows/</loc>
+        <loc>http://0.0.0.0:4000/posts/razor-windows/</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/articles/diastatic-malt-powder/</loc>
+        <loc>http://0.0.0.0:4000/posts/diastatic-malt-powder/</loc>
     </url>
     
     <url>
-        <loc>http://0.0.0.0:4000/articles/nagios-behind-nginx/</loc>
+        <loc>http://0.0.0.0:4000/posts/nagios-behind-nginx/</loc>
     </url>
     
 </urlset>

@@ -3,7 +3,7 @@ layout: post
 title: Nagios behind Nginx
 description: "Why do I really need to use apache :|"
 modified: 2013-05-31
-category: articles
+category: posts
 tags: [nagios,nginx]
 share: false
 image:
