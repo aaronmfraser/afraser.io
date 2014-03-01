@@ -71,7 +71,7 @@ Enjoy solving problems and watching happy customer enjoy the services. Looking f
 <table>
   <tr>
     <th>Server OS:</th>
-    <td>CentOS, RHEL, Ubuntu, Debian, Windows 2003, 2008</td>
+    <td>CentOS, RHEL, Ubuntu, Debian, Windows 2k3, 2k8 R2, 2k12 R2</td>
   </tr>
   <tr>
     <th>Client OS:</th>
@@ -95,7 +95,7 @@ Enjoy solving problems and watching happy customer enjoy the services. Looking f
   </tr>
   <tr>
     <th>Cloud Mgmt:</th>
-    <td>Openstack, Cloudstack, vCenter</td>
+    <td>Openstack, Cloudstack, vCenter Director</td>
   </tr>
   <tr>
     <th>HA Tools:</th>
@@ -107,11 +107,11 @@ Enjoy solving problems and watching happy customer enjoy the services. Looking f
   </tr>
   <tr>
     <th>Provisioning:</th>
-    <td>Puppet, Chef, Bash scripting</td>
+    <td>Razor, Cobbler, Kickstart + Bash scripting, Crowbar</td>
   </tr>
   <tr>
     <th>Virtualization:</th>
-    <td>Hypervisors (KVM, Xen, vSpehere, VirtualBox)  Containers(OpenVZ, LXC, Docker)
+    <td>Hypervisors (KVM, Xen, vSpehere, VirtualBox),  Containers(OpenVZ, LXC, Docker)
 </td>
   </tr>
   <tr>
