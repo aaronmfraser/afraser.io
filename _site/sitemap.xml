@@ -6,6 +6,18 @@
     
     
     <url>
+        <loc>http://0.0.0.0:4000/proxies-and-the-middle-east/</loc>
+    </url>
+    
+    <url>
+        <loc>http://0.0.0.0:4000/storage-for-vmware/</loc>
+    </url>
+    
+    <url>
+        <loc>http://0.0.0.0:4000/elastic-dns/</loc>
+    </url>
+    
+    <url>
         <loc>http://0.0.0.0:4000/posts/why-razor/</loc>
     </url>
     

@@ -5,13 +5,64 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://0.0.0.0:4000/feed.xml" />
 <link rel="alternate" type="text/html" href="http://0.0.0.0:4000" />
-<updated>2014-03-01T01:37:30-08:00</updated>
+<updated>2014-03-01T01:42:32-08:00</updated>
 <id>http://0.0.0.0:4000/</id>
 <author>
   <name>Aaron Fraser</name>
   <uri>http://0.0.0.0:4000/</uri>
   <email>me@afraser.io</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Proxies And The Middle East]]></title>
+  <link rel="alternate" type="text/html" href="http://0.0.0.0:4000/proxies-and-the-middle-east/" />
+  <id>http://0.0.0.0:4000/proxies-and-the-middle-east</id>
+  <published>2014-03-01T01:39:51-08:00</published>
+  <updated>2014-03-01T01:39:51-08:00</updated>
+  <author>
+    <name>Aaron Fraser</name>
+    <uri>http://0.0.0.0:4000</uri>
+    <email>me@afraser.io</email>
+  </author>
+  <content type="html">
+
+  &lt;p&gt;&lt;a href=&quot;http://0.0.0.0:4000/proxies-and-the-middle-east/&quot;&gt;Proxies And The Middle East&lt;/a&gt; was originally published by Aaron Fraser at &lt;a href=&quot;http://0.0.0.0:4000&quot;&gt;Aaron Fraser&lt;/a&gt; on March 01, 2014.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Storage For Vmware]]></title>
+  <link rel="alternate" type="text/html" href="http://0.0.0.0:4000/storage-for-vmware/" />
+  <id>http://0.0.0.0:4000/storage-for-vmware</id>
+  <published>2014-03-01T01:39:14-08:00</published>
+  <updated>2014-03-01T01:39:14-08:00</updated>
+  <author>
+    <name>Aaron Fraser</name>
+    <uri>http://0.0.0.0:4000</uri>
+    <email>me@afraser.io</email>
+  </author>
+  <content type="html">
+
+  &lt;p&gt;&lt;a href=&quot;http://0.0.0.0:4000/storage-for-vmware/&quot;&gt;Storage For Vmware&lt;/a&gt; was originally published by Aaron Fraser at &lt;a href=&quot;http://0.0.0.0:4000&quot;&gt;Aaron Fraser&lt;/a&gt; on March 01, 2014.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Elastic Dns]]></title>
+  <link rel="alternate" type="text/html" href="http://0.0.0.0:4000/elastic-dns/" />
+  <id>http://0.0.0.0:4000/elastic-dns</id>
+  <published>2014-03-01T01:38:47-08:00</published>
+  <updated>2014-03-01T01:38:47-08:00</updated>
+  <author>
+    <name>Aaron Fraser</name>
+    <uri>http://0.0.0.0:4000</uri>
+    <email>me@afraser.io</email>
+  </author>
+  <content type="html">
+
+  &lt;p&gt;&lt;a href=&quot;http://0.0.0.0:4000/elastic-dns/&quot;&gt;Elastic Dns&lt;/a&gt; was originally published by Aaron Fraser at &lt;a href=&quot;http://0.0.0.0:4000&quot;&gt;Aaron Fraser&lt;/a&gt; on March 01, 2014.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
