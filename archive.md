@@ -1,5 +1,8 @@
 ---
-layout: default
+layout: page
+permalink: /archive/
+title: Post Archive
+tagline: A List of Posts
 ---
 
 <div class="post">

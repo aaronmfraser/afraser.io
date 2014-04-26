@@ -1,9 +1,7 @@
 ---
 layout: page
-permalink: /about/
-title: Experience - Aaron Fraser
-tagline: Minimal Mistakes, a Jekyll Theme
-tags: [about, Jekyll, theme, responsive]
+permalink: /resume/
+title: Resume
 modified: 9-9-2013
 ---
 
@@ -13,6 +11,14 @@ Enjoy solving problems and watching happy customer enjoy the services. Looking f
 
 ## Experience
 ---
+* **Sr. Systems Engineer** - Disney Interactive - Palo Alto, Ca - October 2013 -> Present 
+    * Supporting game engine team for Facebook, iOS, Android games.
+    * Improving configuration management of systems and application components.
+    * Improved high-availability for framework components
+    * Documented and improved system provisioning to support game engine components
+    * Migrated development into private cloud.
+
+---    
 * **Sr. DevOps Engineer** - CliQr Technologies - Sunnyvale, Ca - May 2013 -> Present
     * Built DC to run internal and development private clouds
         * vCenter & Nested vCenter/ESXi clusters

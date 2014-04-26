@@ -20,6 +20,8 @@ alias mysrvr="ssh -i ~/.ssh/mysrvr.priv root@mysrvr.afraser.io"
 These worked great and all but I still didnt have an easy way to scp files. Trying to make an alias dynamic enough to be able to scp was a pain.
 In exploring this issue and I found ssh configs and they proved to be far more powerful. Soon I replaced  my alias habit with an ssh_config
 
+File is located in your home dir ~/.ssh/ssh_config. 
+
 {% highlight bash %}
 Host c1-dev
    HostName client1-server01.test.co

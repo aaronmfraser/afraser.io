@@ -1,0 +1,19 @@
+---
+layout: default
+title: Home
+---
+
+<div class="post">
+  {% for post in site.posts %}  
+    <article>
+      <h2><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
+      <p>
+          {{ post.content | split:"<!-- more -->" | first | strip_html | truncate:300 }}
+          {% if post.content | size > 300 %}
+              <strong><a href="{{ post.url }}">Read more</a></strong>
+          {% endif %}
+      </p>
+
+    </article>
+  {% endfor %}
+</div>
